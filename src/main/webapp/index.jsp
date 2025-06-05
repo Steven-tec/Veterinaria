@@ -1,4 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    // Verificamos si hay un atributo de sesión (por ejemplo, "usuario")
+    String usuario = (String) session.getAttribute("usuario");
+    if (usuario == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,9 +25,13 @@
 <nav>
     <a href="index.jsp">Inicio</a>
     <a href="#servicios">Servicios</a>
-    <a href="#nosotros">Nosotros</a>
+    <a href="registrar.jsp">Registrar Mascota</a>
+    <a href="misMascotas.jsp">Mis Mascotas</a>
+    <a href="#equipo">Nuestro Equipo</a>
     <a href="#contacto">Contacto</a>
-    <a href="login.jsp">Iniciar Sesión</a>
+    <a href="citas.jsp">Citas</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="login.jsp">Cerrar Sesion</a>
 </nav>
 
 <section class="hero">
