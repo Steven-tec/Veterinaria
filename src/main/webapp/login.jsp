@@ -1,37 +1,32 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="css/login.css">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/loginfinal.css">
+
 </head>
 <body>
-<div class="container">
-    <div class="card">
-        <div class="left">
-            <img src="img/mascota-login.jpg" alt="Mascota veterinaria">
-        </div>
-        <div class="right">
-            <h2>Inicio de Sesión</h2>
+<div class="login-container">
+    <h2>Login</h2>
 
-            <!-- Mostrar mensaje de error si existe -->
-            <c:if test="${not empty error}">
-                <div class="error" style="color:red; margin-bottom: 10px;">
-                        ${error}
-                </div>
-            </c:if>
+    <form method="post" action="login">
+        Email:
+        <input type="email" name="email" required>
+        Password:
+        <input type="password" name="password" required>
+        <input type="submit" value="Iniciar Sesión">
+    </form>
 
-            <form action="LoginServlet" method="post">
-                <input type="email" name="usuario" placeholder="Correo Electrónico" required>
-                <input type="password" name="clave" placeholder="Contraseña" required>
-                <div class="link">
-                    <a href="registro.jsp">¿Necesitas una cuenta?</a>
-                </div>
-                <input type="submit" value="Iniciar Sesión">
-            </form>
-        </div>
+    <% if (request.getParameter("error") != null) { %>
+    <p class="error">Email o contraseña incorrectos</p>
+    <% } %>
+
+    <div class="register-link">
+        ¿No tienes cuenta? <a href="regitrarcliente.jsp">Crear cuenta</a>
     </div>
 </div>
 </body>
 </html>
+

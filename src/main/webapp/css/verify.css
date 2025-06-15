@@ -1,0 +1,72 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #d4f5e6, #c9f0f9);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+h2 {
+    color: #007b8f;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.formulario label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #006d5b;
+    font-weight: bold;
+}
+
+.formulario input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.formulario input[type="submit"],
+.btn-secundario {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00bfa5;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.formulario input[type="submit"]:hover,
+.btn-secundario:hover {
+    background-color: #009f89;
+}
