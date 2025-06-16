@@ -68,7 +68,6 @@
                 <li class="nav-item"><a href="registrarCita.jsp" class="nav-link">Registrar citas</a></li>
                 <li class="nav-item"><a href="RegistrarMascota.jsp" class="nav-link">Registro de Mascotas</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contacto</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Cerrar sesion</a></li>
                 <li class="nav-item"><a href="LoginAdmin.jsp" class="nav-link">Admin loging</a></li>
             </ul>
         </div>
