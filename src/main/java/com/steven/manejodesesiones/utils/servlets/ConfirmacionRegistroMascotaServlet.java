@@ -13,18 +13,20 @@ public class ConfirmacionRegistroMascotaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Obtener el parámetro de la request
+        // Obtener el parámetro "idMascota" enviado en la solicitud HTTP GET
         String idMascota = request.getParameter("idMascota");
 
-        // Validar si viene el parámetro, o manejar error aquí si quieres
+        // Validar si el parámetro "idMascota" está vacío o es nulo
         if (idMascota == null || idMascota.isEmpty()) {
+            // Asignar valor por defecto "Desconocido" en caso de que no se reciba el parámetro
             idMascota = "Desconocido";
         }
 
-        // Pasar el idMascota como atributo a la vista JSP
+        // Guardar el valor de "idMascota" como atributo de la solicitud para ser accedido en el JSP
         request.setAttribute("idMascota", idMascota);
 
-        // Forward a JSP para mostrar la confirmación
+        // Redirigir (forward) la solicitud y respuesta al JSP "confirmacionMascota.jsp" para mostrar la confirmación
         request.getRequestDispatcher("confirmacionMascota.jsp").forward(request, response);
     }
 }
+

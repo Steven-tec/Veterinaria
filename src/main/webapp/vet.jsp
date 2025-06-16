@@ -139,7 +139,7 @@
 							<h3>Steven Cabascango</h3>
 							<span class="position mb-2">Developer SSS+</span>
 							<div class="faded">
-								<p>Zero no zukaima padre del isekai.</p>
+								<p>Mi vida la Programacion.</p>
 								<ul class="ftco-social text-center">
 									<li class="ftco-animate"><a href="#"
 											class="d-flex align-items-center justify-content-center"><span
@@ -271,6 +271,64 @@
 									<li class="ftco-animate"><a href="#"
 											class="d-flex align-items-center justify-content-center"><span
 												class="fa fa-instagram"></span></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(img/erickmej.jpg);">
+							</div>
+						</div>
+						<div class="text pt-3 px-3 pb-4 text-center">
+							<h3>Erick Mejia</h3>
+							<span class="position mb-2">Devolper in web</span>
+							<div class="faded">
+								<p>Desarollo de la pagina web</p>
+								<ul class="ftco-social text-center">
+									<li class="ftco-animate"><a href="#"
+																class="d-flex align-items-center justify-content-center"><span
+											class="fa fa-twitter"></span></a></li>
+									<li class="ftco-animate"><a href="#"
+																class="d-flex align-items-center justify-content-center"><span
+											class="fa fa-facebook"></span></a></li>
+									<li class="ftco-animate"><a href="#"
+																class="d-flex align-items-center justify-content-center"><span
+											class="fa fa-google"></span></a></li>
+									<li class="ftco-animate"><a href="#"
+																class="d-flex align-items-center justify-content-center"><span
+											class="fa fa-instagram"></span></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(img/esteban.png);">
+							</div>
+						</div>
+						<div class="text pt-3 px-3 pb-4 text-center">
+							<h3>Esteban Sanchez</h3>
+							<span class="position mb-2">Devolper in web</span>
+							<div class="faded">
+								<p>Desarrolador de la pagina web</p>
+								<ul class="ftco-social text-center">
+									<li class="ftco-animate"><a href="#"
+																class="d-flex align-items-center justify-content-center"><span
+											class="fa fa-twitter"></span></a></li>
+									<li class="ftco-animate"><a href="#"
+																class="d-flex align-items-center justify-content-center"><span
+											class="fa fa-facebook"></span></a></li>
+									<li class="ftco-animate"><a href="#"
+																class="d-flex align-items-center justify-content-center"><span
+											class="fa fa-google"></span></a></li>
+									<li class="ftco-animate"><a href="#"
+																class="d-flex align-items-center justify-content-center"><span
+											class="fa fa-instagram"></span></a></li>
 								</ul>
 							</div>
 						</div>

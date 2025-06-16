@@ -20,6 +20,7 @@ public class RegistrarCitaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
+        // Obtener parámetros del formulario para la cita médica
         String idMascotaStr = request.getParameter("idMascota");
         String fecha = request.getParameter("fecha");
         String hora = request.getParameter("hora");
@@ -27,6 +28,7 @@ public class RegistrarCitaServlet extends HttpServlet {
         String indicaciones = request.getParameter("indicaciones");
         String veterinario = request.getParameter("veterinario");
 
+        // Validar que los campos obligatorios no estén vacíos
         if (idMascotaStr == null || idMascotaStr.isEmpty() ||
                 fecha == null || fecha.isEmpty() ||
                 hora == null || hora.isEmpty() ||
@@ -38,10 +40,12 @@ public class RegistrarCitaServlet extends HttpServlet {
         }
 
         try {
+            // Convertir idMascota y idVeterinario a Long para la base de datos
             Long idMascota = Long.parseLong(idMascotaStr);
             Long idVeterinario = Long.parseLong(veterinario);
 
             try (Connection conn = DBConnection.getConnection()) {
+                // Preparar la sentencia SQL para insertar la cita médica
                 String sql = "INSERT INTO cita_medica (id_mascota, fecha, hora, motivo, indicaciones, veterinario, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setLong(1, idMascota);
@@ -50,10 +54,11 @@ public class RegistrarCitaServlet extends HttpServlet {
                 ps.setString(4, motivo);
                 ps.setString(5, indicaciones);
                 ps.setLong(6, idVeterinario);  // Guardar id del veterinario
-                ps.setString(7, "ACTIVA");
+                ps.setString(7, "ACTIVA");     // Estado inicial de la cita
 
                 int filas = ps.executeUpdate();
 
+                // Verificar si la inserción fue exitosa
                 if (filas > 0) {
                     request.setAttribute("exito", "Cita médica agendada con éxito.");
                 } else {
@@ -61,16 +66,19 @@ public class RegistrarCitaServlet extends HttpServlet {
                 }
             }
         } catch (NumberFormatException e) {
+            // Captura error si el ID no es un número válido
             request.setAttribute("error", "ID inválido.");
         } catch (SQLException e) {
+            // Captura error de base de datos y muestra traza para depuración
             e.printStackTrace();
             request.setAttribute("error", "Error en la base de datos.");
         }
 
-        // Recarga la lista de veterinarios para el formulario
+        // Recarga la lista de veterinarios para mostrar en el formulario nuevamente
         VeterinarioDAO dao = new VeterinarioDAO();
         request.setAttribute("veterinarios", dao.listarVeterinarios());
 
+        // Redirige nuevamente al JSP del formulario de registro de cita
         request.getRequestDispatcher("registrarCita.jsp").forward(request, response);
     }
 }

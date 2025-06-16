@@ -15,6 +15,7 @@ public class RegistrarMascotaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Obtener parámetros del formulario
         String nombreUsuario = request.getParameter("nombre");  // nombre usuario
         String nombreMascota = request.getParameter("nombreMascota");
         String especie = request.getParameter("especie");
@@ -47,7 +48,7 @@ public class RegistrarMascotaServlet extends HttpServlet {
 
         try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS)) {
 
-            // Buscar id_usuario
+            // Buscar id_usuario en la base de datos según el nombre del usuario
             String sqlGetIdUsuario = "SELECT id_usuario FROM usuarios WHERE nombre = ?";
             Integer idUsuario = null;
             try (PreparedStatement ps = conn.prepareStatement(sqlGetIdUsuario)) {
@@ -56,13 +57,14 @@ public class RegistrarMascotaServlet extends HttpServlet {
                 if (rs.next()) {
                     idUsuario = rs.getInt("id_usuario");
                 } else {
+                    // Si no existe el usuario, mostrar error y redirigir a la página de registro
                     request.setAttribute("error", "El usuario con nombre '" + nombreUsuario + "' no existe.");
                     request.getRequestDispatcher("RegistrarMascota.jsp").forward(request, response);
                     return;
                 }
             }
 
-            // Insertar mascota y obtener id generado
+            // Insertar nueva mascota en la base de datos y obtener el ID generado automáticamente
             String sqlInsert = "INSERT INTO mascota (id_usuario, nombre, especie, raza, edad) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement psInsert = conn.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS)) {
                 psInsert.setInt(1, idUsuario);
@@ -79,24 +81,29 @@ public class RegistrarMascotaServlet extends HttpServlet {
                 ResultSet generatedKeys = psInsert.getGeneratedKeys();
                 if (generatedKeys.next()) {
                     int idMascota = generatedKeys.getInt(1);
+                    // Mensaje de éxito con el ID de la mascota registrada
                     request.setAttribute("mensaje", "Mascota registrada correctamente con ID: " + idMascota);
                     request.getRequestDispatcher("RegistrarMascota.jsp").forward(request, response);
                 } else {
+                    // Error si no se pudo obtener el ID generado
                     throw new SQLException("No se pudo obtener el ID de la mascota.");
                 }
             }
 
         } catch (SQLException e) {
+            // Captura y muestra error en caso de fallo en base de datos
             e.printStackTrace();
             request.setAttribute("error", "Error al registrar mascota: " + e.getMessage());
             request.getRequestDispatcher("RegistrarMascota.jsp").forward(request, response);
         }
     }
 
+    // Método auxiliar para verificar si un texto contiene números
     private boolean contieneNumeros(String texto) {
         return texto != null && texto.matches(".*\\d.*");
     }
 }
+
 
 
 

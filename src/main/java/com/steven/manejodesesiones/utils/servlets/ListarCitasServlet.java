@@ -20,16 +20,19 @@ public class ListarCitasServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Obtener el id del usuario almacenado en la sesión
         Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
 
+        // Lista para almacenar las citas médicas
         List<CitaDTO> citas = new ArrayList<>();
 
         if (idUsuario != null) {
-            // Cargar las mascotas del usuario
+            // Obtener y establecer en la request la lista de mascotas del usuario
             request.setAttribute("mascotas", MascotaDAO.obtenerPorUsuario(idUsuario));
 
             try (Connection conn = DBConnection.getConnection()) {
 
+                // Consulta SQL para obtener citas médicas de las mascotas del usuario ordenadas por fecha y hora
                 String sql = "SELECT * FROM cita_medica " +
                         "WHERE id_mascota IN (SELECT id FROM mascota WHERE id_usuario = ?) " +
                         "ORDER BY fecha DESC, hora DESC";
@@ -39,6 +42,7 @@ public class ListarCitasServlet extends HttpServlet {
 
                 ResultSet rs = stmt.executeQuery();
 
+                // Recorrer el resultado y mapear cada fila a un objeto CitaDTO
                 while (rs.next()) {
                     CitaDTO cita = new CitaDTO();
                     cita.setId(rs.getLong("id"));
@@ -54,14 +58,18 @@ public class ListarCitasServlet extends HttpServlet {
 
             } catch (SQLException e) {
                 e.printStackTrace();
+                // Establecer mensaje de error en caso de excepción al obtener las citas
                 request.setAttribute("error", "Error al obtener las citas.");
             }
 
         } else {
+            // Si no hay usuario autenticado, establecer mensaje de error
             request.setAttribute("error", "Usuario no autenticado.");
         }
 
+        // Pasar la lista de citas a la vista JSP
         request.setAttribute("citas", citas);
+        // Redirigir a la página JSP para mostrar las citas
         request.getRequestDispatcher("/verCitas.jsp").forward(request, response);
     }
 }

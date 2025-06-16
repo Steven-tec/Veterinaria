@@ -12,20 +12,26 @@ import java.util.List;
 
 public class AuthService {
 
+    // Método para autenticar un usuario dado un email y una contraseña
     public Usuario login(String email, String password) {
         Usuario usuario = null;
+        // Consulta SQL que busca usuarios activos con el email proporcionado
         String sql = "SELECT * FROM usuarios WHERE email = ? AND activo = 1"; // Solo usuarios activos
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
+            // Establecer el parámetro email en la consulta
             ps.setString(1, email);
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
+                    // Obtener el hash almacenado de la contraseña
                     String hashedPassword = rs.getString("password_hash");
 
+                    // Verificar la contraseña ingresada comparándola con el hash
                     if (BCrypt.checkpw(password, hashedPassword)) {
+                        // Si la contraseña es correcta, crear un objeto Usuario y llenar sus datos
                         usuario = new Usuario();
                         usuario.setIdUsuario(rs.getLong("id_usuario"));
                         usuario.setNombre(rs.getString("nombre"));
@@ -41,12 +47,15 @@ public class AuthService {
             }
 
         } catch (Exception e) {
+            // Captura y muestra la excepción en caso de error en la conexión o consulta
             e.printStackTrace();
         }
 
+        // Retorna el usuario autenticado o null si falla la autenticación
         return usuario;
     }
 
+    // Método para obtener la lista completa de usuarios desde la base de datos
     public List<Usuario> obtenerTodosUsuarios() {
         List<Usuario> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM usuarios";
@@ -55,6 +64,7 @@ public class AuthService {
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
+            // Itera sobre cada fila del resultado para construir los objetos Usuario
             while (rs.next()) {
                 Usuario u = new Usuario();
                 u.setIdUsuario(rs.getLong("id_usuario"));
@@ -67,12 +77,15 @@ public class AuthService {
                 u.setFechaRegistro(rs.getTimestamp("fecha_registro").toLocalDateTime());
                 u.setFechaActualizacion(rs.getTimestamp("fecha_actualizacion").toLocalDateTime());
 
+                // Añadir el usuario a la lista
                 usuarios.add(u);
             }
         } catch (Exception e) {
+            // Captura y muestra la excepción en caso de error durante la consulta
             e.printStackTrace();
         }
 
+        // Retorna la lista con todos los usuarios encontrados
         return usuarios;
     }
 }

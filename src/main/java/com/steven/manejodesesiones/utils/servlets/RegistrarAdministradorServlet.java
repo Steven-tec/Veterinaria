@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 @WebServlet("/RegistrarAdministradorServlet")
 public class RegistrarAdministradorServlet extends HttpServlet {
 
+    // Método para generar un código de verificación numérico de 6 dígitos
     private String generarCodigoVerificacion() {
         int codigo = (int) (Math.random() * 900000) + 100000; // genera 6 dígitos entre 100000 y 999999
         return String.valueOf(codigo);
@@ -23,6 +24,7 @@ public class RegistrarAdministradorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Obtener datos del formulario
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String email = request.getParameter("correo");
@@ -32,11 +34,12 @@ public class RegistrarAdministradorServlet extends HttpServlet {
         // Generar código de verificación de 6 dígitos
         String codigoVerificacion = generarCodigoVerificacion();
 
-        // Hash de la contraseña
+        // Hashear la contraseña para almacenarla segura
         String hashedPassword = PasswordHash.hashPassword(clave);
 
         try (Connection conn = DBConnection.getConnection()) {
 
+            // Preparar sentencia SQL para insertar nuevo administrador en la base de datos
             String sql = "INSERT INTO usuarios (nombre, apellido, email, password_hash, rol, verificado, codigo_verificacion, fecha_registro, activo) "
                     + "VALUES (?, ?, ?, ?, ?, 0, ?, NOW(), 1)";
 
@@ -51,7 +54,7 @@ public class RegistrarAdministradorServlet extends HttpServlet {
             int filas = stmt.executeUpdate();
 
             if (filas > 0) {
-                // Enviar correo con código de verificación
+                // Si se insertó correctamente, enviar correo con el código de verificación
                 String subject = "Verificación de cuenta - Administrador";
                 String content = "Hola " + nombre + ",\n\n"
                         + "Gracias por registrarte como administrador. Para activar tu cuenta, por favor utiliza el siguiente código de verificación de 6 dígitos:\n\n"
@@ -62,17 +65,19 @@ public class RegistrarAdministradorServlet extends HttpServlet {
 
                 EmailSender.sendEmail(email, subject, content);
 
-                // Redirigir a página para ingresar código de verificación
+                // Redirigir a página donde el administrador ingresa el código para activar su cuenta
                 response.sendRedirect("verify.jsp?email=" + email);
             } else {
-                // No se pudo insertar el usuario
+                // Si no se pudo insertar el administrador, redirigir con mensaje de error
                 response.sendRedirect("RegistrarAdministrador.jsp?msg=Error al registrar administrador");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            // En caso de error interno, redirigir con mensaje de error
             response.sendRedirect("RegistrarAdministrador.jsp?msg=Error interno del servidor");
         }
     }
 }
+
 
