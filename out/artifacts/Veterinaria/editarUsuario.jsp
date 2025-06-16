@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <title>Editar Usuario</title>
 
+  <link rel="stylesheet" href="css/editarUsuario.css">
+
 </head>
 <body>
 

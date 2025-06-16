@@ -15,37 +15,50 @@ import java.util.List;
 
 @WebServlet("/citas/listar")
 public class ListarCitasServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
-        if (idUsuario != null) {
-            request.setAttribute("mascotas", MascotaDAO.obtenerPorUsuario(idUsuario));
-        }
 
         List<CitaDTO> citas = new ArrayList<>();
 
-        try (Connection conn = DBConnection.getConnection()) {
-            String sql = "SELECT * FROM cita_medica ORDER BY fecha DESC, hora DESC";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
+        if (idUsuario != null) {
+            // Cargar las mascotas del usuario
+            request.setAttribute("mascotas", MascotaDAO.obtenerPorUsuario(idUsuario));
 
-            while (rs.next()) {
-                CitaDTO cita = new CitaDTO();
-                cita.setId(rs.getLong("id"));
-                cita.setIdMascota(rs.getLong("id_mascota"));
-                cita.setFecha(rs.getDate("fecha").toLocalDate());
-                cita.setHora(rs.getString("hora"));
-                cita.setMotivo(rs.getString("motivo"));
-                cita.setIndicaciones(rs.getString("indicaciones"));
-                cita.setVeterinario(rs.getString("veterinario"));
-                cita.setEstado(rs.getString("estado"));
-                citas.add(cita);
+            try (Connection conn = DBConnection.getConnection()) {
+
+                String sql = "SELECT * FROM cita_medica " +
+                        "WHERE id_mascota IN (SELECT id FROM mascota WHERE id_usuario = ?) " +
+                        "ORDER BY fecha DESC, hora DESC";
+
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setLong(1, idUsuario);
+
+                ResultSet rs = stmt.executeQuery();
+
+                while (rs.next()) {
+                    CitaDTO cita = new CitaDTO();
+                    cita.setId(rs.getLong("id"));
+                    cita.setIdMascota(rs.getLong("id_mascota"));
+                    cita.setFecha(rs.getDate("fecha").toLocalDate());
+                    cita.setHora(rs.getString("hora"));
+                    cita.setMotivo(rs.getString("motivo"));
+                    cita.setIndicaciones(rs.getString("indicaciones"));
+                    cita.setVeterinario(rs.getString("veterinario"));
+                    cita.setEstado(rs.getString("estado"));
+                    citas.add(cita);
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                request.setAttribute("error", "Error al obtener las citas.");
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            request.setAttribute("error", "Usuario no autenticado.");
         }
 
         request.setAttribute("citas", citas);

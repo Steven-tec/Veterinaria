@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Acceso Denegado</title>
+    <link rel="stylesheet" href="css/errorAcesso.css">
 </head>
 <body>
 

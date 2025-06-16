@@ -20,7 +20,30 @@ public class RegistrarMascotaServlet extends HttpServlet {
         String especie = request.getParameter("especie");
         String raza = request.getParameter("raza");
         String edadStr = request.getParameter("edad");
-        Integer edad = (edadStr != null && !edadStr.isEmpty()) ? Integer.parseInt(edadStr) : null;
+        Integer edad = null;
+
+        // Validaciones de campos para que no contengan números
+        if (contieneNumeros(nombreUsuario) || contieneNumeros(nombreMascota) || contieneNumeros(especie) || contieneNumeros(raza)) {
+            request.setAttribute("error", "Los campos nombre de usuario, nombre de mascota, especie y raza no deben contener números.");
+            request.getRequestDispatcher("RegistrarMascota.jsp").forward(request, response);
+            return;
+        }
+
+        // Validar edad que sea entero >= 1 si se ingresó
+        if (edadStr != null && !edadStr.isEmpty()) {
+            try {
+                edad = Integer.parseInt(edadStr);
+                if (edad < 1) {
+                    request.setAttribute("error", "La edad debe ser un número entero mayor o igual a 1.");
+                    request.getRequestDispatcher("RegistrarMascota.jsp").forward(request, response);
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                request.setAttribute("error", "La edad debe ser un número válido.");
+                request.getRequestDispatcher("RegistrarMascota.jsp").forward(request, response);
+                return;
+            }
+        }
 
         try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS)) {
 
@@ -56,7 +79,6 @@ public class RegistrarMascotaServlet extends HttpServlet {
                 ResultSet generatedKeys = psInsert.getGeneratedKeys();
                 if (generatedKeys.next()) {
                     int idMascota = generatedKeys.getInt(1);
-                    // Puedes pasar un mensaje de éxito o redirigir a otra página
                     request.setAttribute("mensaje", "Mascota registrada correctamente con ID: " + idMascota);
                     request.getRequestDispatcher("RegistrarMascota.jsp").forward(request, response);
                 } else {
@@ -70,6 +92,12 @@ public class RegistrarMascotaServlet extends HttpServlet {
             request.getRequestDispatcher("RegistrarMascota.jsp").forward(request, response);
         }
     }
+
+    private boolean contieneNumeros(String texto) {
+        return texto != null && texto.matches(".*\\d.*");
+    }
 }
+
+
 
 

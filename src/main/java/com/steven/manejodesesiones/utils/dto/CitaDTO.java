@@ -1,5 +1,6 @@
 package com.steven.manejodesesiones.utils.dto;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class CitaDTO {
@@ -89,4 +90,6 @@ public class CitaDTO {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+
 }

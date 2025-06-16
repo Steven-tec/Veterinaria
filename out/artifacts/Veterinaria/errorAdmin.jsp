@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Error de Acceso - Admin</title>
+  <link rel="stylesheet" href="css/errorAdmin.css">
 </head>
 <body>
 <div class="error-container">

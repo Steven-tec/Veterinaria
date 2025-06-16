@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap"
           rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/animate.css">
@@ -19,6 +22,7 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
@@ -41,12 +45,6 @@
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
                     </p>
                 </div>
             </div>
@@ -54,28 +52,28 @@
     </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">s
-        <a class="navbar-brand" href="index.jsp"><span class="flaticon-pawprint-1 mr-2">Clínica de mascotas</span></a>
+    <div class="container">
+        <a class="navbar-brand me-3" href="index.jsp">
+            <i class="fa fa-paw mr-2" style="color: #9f41d5;"></i> Clínica de mascotas
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item active"><a href="index.jsp" class="nav-link">Inicio</a></li>
                 <li class="nav-item"><a href="vet.jsp" class="nav-link">Nuestro Equipo</a></li>
                 <li class="nav-item"><a href="services.jsp" class="nav-link">Servicios</a></li>
                 <li class="nav-item"><a href="registrarCita.jsp" class="nav-link">Registrar citas</a></li>
-                <li class="nav-item"><a href="RegistrarMascota.jsp" class="nav-link">Mis mascotas</a></li>
+                <li class="nav-item"><a href="RegistrarMascota.jsp" class="nav-link">Registro de Mascotas</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contacto</a></li>
-                <li class="nav-item"><a href="agenda.jsp" class="nav-link">Contacto</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">salir</a></li>
-                <li class="nav-item"><a href="LoginAdmin.jsp" class="nav-link">Administrador</a></li>
-
+                <li class="nav-item"><a href="LoginAdmin.jsp" class="nav-link">Admin loging</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 <!-- END nav -->
 <div class="hero-wrap js-fullheight" style="background-image: url('img/bg_1.jpg');"
      data-stellar-background-ratio="0.5">
@@ -85,8 +83,6 @@
              data-scrollax-parent="true">
             <div class="col-md-11 ftco-animate text-center">
                 <h1 class="mb-4">Cuidado de la más alta calidad para mascotas que te encantarán </h1>
-                <p><a href="#" class="btn btn-primary mr-md-4 py-3 px-4">Leer mas <span
-                        class="ion-ios-arrow-forward"></span></a></p>
             </div>
         </div>
     </div>
@@ -98,46 +94,40 @@
             <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
                 <div class="d-block services active text-center">
                     <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="flaticon-blind"></span>
+                        <i class="fa fa-dog" style="color:#28a745; font-size: 36px;"></i>
                     </div>
                     <div class="media-body">
                         <h3 class="heading">Pasear Perros</h3>
                         <p>Paseo de perros en el parque y de manera monitoreada</p>
-                        <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span
-                                class="fa fa-chevron-right"></span><i class="sr-only">Leer Mas</i></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
                 <div class="d-block services text-center">
                     <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="flaticon-dog-eating"></span>
+                        <i class="fa fa-dog" style="color:#28a745; font-size: 36px;"></i>
                     </div>
                     <div class="media-body">
                         <h3 class="heading">Guardería de mascotas</h3>
-                        <p>En caso de tener mascotas y no poder cuidarlas por temas de trabajo el servicio de guarderia sera tu mejor ayuda cuidaremso a tus mascotas de la
-                            mejor manera.</p>
-                        <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span
-                                class="fa fa-chevron-right"></span><i class="sr-only">Leer Mas</i></a>
+                        <p>En caso de tener mascotas y no poder cuidarlas por temas de trabajo el servicio de guardería será tu mejor ayuda cuidaremos a tus mascotas de la mejor manera.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
                 <div class="d-block services text-center">
                     <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="flaticon-grooming"></span>
+                        <i class="fa fa-scissors" style="color:#28a745; font-size: 36px;"></i>
                     </div>
                     <div class="media-body">
                         <h3 class="heading">Peluquería de mascotas</h3>
-                        <p>Tambien sabemos que el estilo de tu mascota es importante por esa razon tambien tenemos un servicio de peluqueria para tus mascotas.</p>
-                        <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span
-                                class="fa fa-chevron-right"></span><i class="sr-only">Leer más</i></a>
-                    </div>
+                        <p>También sabemos que el estilo de tu mascota es importante, por esa razón también tenemos un servicio de peluquería para tus mascotas.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
 
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
@@ -153,35 +143,39 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 services-2 w-100 d-flex">
-                        <div class="icon d-flex align-items-center justify-content-center"><span
-                                class="flaticon-stethoscope"></span></div>
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-stethoscope" style="color:#ffffff; font-size: 32px;"></i>
+                        </div>
                         <div class="text pl-3">
                             <h4>Consejos de cuidado</h4>
                             <p>Daremos los mejores consejos sobre el cuidado que deben tener las mascotas en caso de riesgo</p>
                         </div>
                     </div>
                     <div class="col-md-6 services-2 w-100 d-flex">
-                        <div class="icon d-flex align-items-center justify-content-center"><span
-                                class="flaticon-customer-service"></span></div>
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-headset" style="color:#ffffff; font-size: 32px;"></i>
+                        </div>
                         <div class="text pl-3">
                             <h4>Atención al cliente</h4>
-                            <p>La mejor atencion al cliente la cual nos diferencia de las demas veterinarias una atencion excelente y profesional</p>
+                            <p>La mejor atención al cliente la cual nos diferencia de las demás veterinarias, una atención excelente y profesional</p>
                         </div>
                     </div>
                     <div class="col-md-6 services-2 w-100 d-flex">
-                        <div class="icon d-flex align-items-center justify-content-center"><span
-                                class="flaticon-emergency-call"></span></div>
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-phone-volume" style="color:#ffffff; font-size: 32px;"></i>
+                        </div>
                         <div class="text pl-3">
                             <h4>Servicios de emergencia</h4>
-                            <p>En caso de tener una emergencia puede contactarnos a cualquier hora en caso de tener algun problema con su mascota</p>
+                            <p>En caso de tener una emergencia puede contactarnos a cualquier hora en caso de tener algún problema con su mascota</p>
                         </div>
                     </div>
                     <div class="col-md-6 services-2 w-100 d-flex">
-                        <div class="icon d-flex align-items-center justify-content-center"><span
-                                class="flaticon-veterinarian"></span></div>
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-user-doctor" style="color:#ffffff; font-size: 32px;"></i>
+                        </div>
                         <div class="text pl-3">
                             <h4>Ayuda veterinaria</h4>
-                            <p>La mejor ayuda medica para tus mascotas y los mejores cuidados en caso de enfermedades.</p>
+                            <p>La mejor ayuda médica para tus mascotas y los mejores cuidados en caso de enfermedades.</p>
                         </div>
                     </div>
                 </div>
@@ -189,6 +183,7 @@
         </div>
     </div>
 </section>
+
 
 <section class="ftco-counter" id="section-counter">
     <div class="container">
@@ -244,7 +239,7 @@
             <div class="col-lg-6 order-md-last">
                 <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
                      style="background-image:url(img/about.jpg);">
-                    <a href="https://vimeo.com/45830194"
+                    <a href=""
                        class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
                         <span class="fa fa-play"></span>
                     </a>
@@ -385,10 +380,10 @@
                             <div class="text">
                                 <p class="mb-4">La mejor atencion que a podido recibir mi mascota excelente servicio</p>
                                 <div class="d-flex align-items-center">
-                                    <div class="user-img" style="background-image: url(img/person_1.jpg)"></div>
+                                    <div class="user-img" style="background-image: url(img/mongero.jpg)"></div>
                                     <div class="pl-3">
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Gerente de Marketing</span>
+                                        <p class="name">Roberto Carillo</p>
+                                        <span class="position">Cliente</span>
                                     </div>
                                 </div>
                             </div>
@@ -401,10 +396,10 @@
                             <div class="text">
                                 <p class="mb-4">La guarderia de mascotas es la mejor opcion de cuidado para mis mascotas cuando estoy ocupado</p>
                                 <div class="d-flex align-items-center">
-                                    <div class="user-img" style="background-image: url(img/person_2.jpg)"></div>
+                                    <div class="user-img" style="background-image: url(img/maschcuhas.jpg)"></div>
                                     <div class="pl-3">
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Gerente de Marketing</span>
+                                        <p class="name">Ronny Bastidas</p>
+                                        <span class="position">Cliente</span>
                                     </div>
                                 </div>
                             </div>
@@ -417,10 +412,10 @@
                             <div class="text">
                                 <p class="mb-4">Mi mascota tubo los mejores cuidados en esta veterinaria por eso la recomiendo</p>
                                 <div class="d-flex align-items-center">
-                                    <div class="user-img" style="background-image: url(img/person_3.jpg)"></div>
+                                    <div class="user-img" style="background-image: url(img/shark.jpg)"></div>
                                     <div class="pl-3">
-                                        <p class="name">Roger Scott</p>
-                                        <span class="position">Gerente de Marketing</span>
+                                        <p class="name">David Sharian</p>
+                                        <span class="position">Cliente</span>
                                     </div>
                                 </div>
                             </div>
@@ -458,7 +453,6 @@
                             <li><span class="fa fa-check mr-2"></span>Soporte gratuito</li>
                         </ul>
 
-                        <a href="#" class="btn btn-primary d-block px-2 py-3">Comenzar</a>
                     </div>
                 </div>
             </div>
@@ -476,7 +470,6 @@
                             <li><span class="fa fa-check mr-2"></span>Soporte gratuito</li>
                         </ul>
 
-                        <a href="#" class="btn btn-primary d-block px-2 py-3">Comenzar</a>
                     </div>
                 </div>
             </div>
@@ -494,7 +487,6 @@
                             <li><span class="fa fa-check mr-2"></span>Soporte gratuito</li>
                         </ul>
 
-                        <a href="#" class="btn btn-primary d-block px-2 py-3">Comenzar</a>
                     </div>
                 </div>
             </div>
@@ -665,75 +657,6 @@
     </div>
 </section>
 
-<section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img"
-         style="background-image: url(img/bg_3.jpg);">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row d-md-flex justify-content-end">
-            <div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-                <h2 class="mb-4">Consulta Gratuita</h2>
-                <form action="#" class="appointment">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <div class="form-field">
-                                    <div class="select-wrap">
-                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                        <select name="" id="" class="form-control">
-                                            <option value="">Seleccionar servicios</option>
-                                            <option value="">Cuidado de gatos</option>
-                                            <option value="">Paseo de perros</option>
-                                            <option value="">Spa para mascotas</option>
-                                            <option value="">Aseo de mascotas</option>
-                                            <option value="">Guardería para mascotas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Tu nombre">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Número de vehículo">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="input-wrap">
-                                    <div class="icon"><span class="fa fa-calendar"></span></div>
-                                    <input type="text" class="form-control appointment_date" placeholder="Fecha">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="input-wrap">
-                                    <div class="icon"><span class="fa fa-clock-o"></span></div>
-                                    <input type="text" class="form-control appointment_time" placeholder="Hora">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <textarea name="" id="" cols="30" rows="7" class="form-control"
-                                          placeholder="Mensaje"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="submit" value="Enviar mensaje" class="btn btn-primary py-3 px-4">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
 
 <footer class="footer">
     <div class="container">

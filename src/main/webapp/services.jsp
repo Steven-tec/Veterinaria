@@ -56,7 +56,9 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-          <a class="navbar-brand" href="index.jsp"><span class="flaticon-pawprint-1 mr-2"></span>Clínica de mascotas</a>
+          <a class="navbar-brand me-3" href="index.jsp">
+              <i class="fa fa-paw mr-2" style="color: #9f41d5;"></i> Clínica de mascotas
+          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Alternar navegación">
               <span class="fa fa-bars"></span> Menú
           </button>
@@ -65,10 +67,11 @@
                   <li class="nav-item active"><a href="index.jsp" class="nav-link">Inicio</a></li>
                   <li class="nav-item"><a href="vet.jsp" class="nav-link">Nuestro Equipo</a></li>
                   <li class="nav-item"><a href="services.jsp" class="nav-link">Servicios</a></li>
-                  <li class="nav-item"><a href="pricing.jsp" class="nav-link">Registrar</a></li>
-                  <li class="nav-item"><a href="blog.jsp" class="nav-link">Mis mascotas</a></li>
+                  <li class="nav-item"><a href="registrarCita.jsp" class="nav-link">Registrar citas</a></li>
+                  <li class="nav-item"><a href="RegistrarMascota.jsp" class="nav-link">Registro de Mascotas</a></li>
                   <li class="nav-item"><a href="contact.jsp" class="nav-link">Contacto</a></li>
-                  <li class="nav-item"><a href="login.jsp" class="nav-link">salir</a></li>
+                  <li class="nav-item"><a href="login.jsp" class="nav-link">Cerrar sesion</a></li>
+                  <li class="nav-item"><a href="LoginAdmin.jsp" class="nav-link">Admin loging</a></li>
               </ul>
           </div>
       </div>
@@ -109,9 +112,6 @@
                       <div class="media-body p-4">
                           <h3 class="heading">Paseo de perros</h3>
                           <p>¡Dale a tu mejor amigo una aventura diaria! Nuestros paseadores expertos cuidan cada paso para que tu perro disfrute seguro y feliz.</p>
-                          <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                              <span class="fa fa-chevron-right"></span><i class="sr-only">Leer más</i>
-                          </a>
                       </div>
                   </div>
               </div>
@@ -124,9 +124,6 @@
                       <div class="media-body p-4">
                           <h3 class="heading">Cuidado diurno de mascotas</h3>
                           <p>Un espacio seguro y divertido donde tu mascota recibirá cariño y atención mientras tú trabajas o estás ocupado.</p>
-                          <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                              <span class="fa fa-chevron-right"></span><i class="sr-only">Leer más</i>
-                          </a>
                       </div>
                   </div>
               </div>
@@ -139,9 +136,6 @@
                       <div class="media-body p-4">
                           <h3 class="heading">Peluquería para mascotas</h3>
                           <p>Mima a tu mascota con un corte y baño profesional que resaltará su belleza y bienestar.</p>
-                          <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                              <span class="fa fa-chevron-right"></span><i class="sr-only">Leer más</i>
-                          </a>
                       </div>
                   </div>
               </div>
@@ -158,9 +152,6 @@
                       <div class="media-body p-4">
                           <h3 class="heading">Entrenamiento canino</h3>
                           <p>Entrena a tu perro con métodos positivos para mejorar su comportamiento y fortalecer su vínculo contigo.</p>
-                          <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                              <span class="fa fa-chevron-right"></span><i class="sr-only">Leer más</i>
-                          </a>
                       </div>
                   </div>
               </div>
@@ -173,9 +164,6 @@
                       <div class="media-body p-4">
                           <h3 class="heading">Guardería para mascotas</h3>
                           <p>Un lugar donde tu mascota puede jugar y socializar, recibiendo atención personalizada todo el día.</p>
-                          <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                              <span class="fa fa-chevron-right"></span><i class="sr-only">Leer más</i>
-                          </a>
                       </div>
                   </div>
               </div>
@@ -188,9 +176,6 @@
                       <div class="media-body p-4">
                           <h3 class="heading">Spa para mascotas</h3>
                           <p>Tratamientos especiales para consentir a tu mascota con baños relajantes y cuidados exclusivos.</p>
-                          <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                              <span class="fa fa-chevron-right"></span><i class="sr-only">Leer más</i>
-                          </a>
                       </div>
                   </div>
               </div>

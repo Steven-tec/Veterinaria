@@ -3,9 +3,26 @@
 <html>
 <head>
   <title>Login</title>
-
   <link rel="stylesheet" href="css/loginfinal.css">
+  <style>
+    .btn-volver {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #6c757d;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
 
+    .btn-volver:hover {
+      background-color: #5a6268;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 <div class="login-container">
@@ -25,6 +42,10 @@
 
   <div class="register-link">
     ¿No tienes cuenta? <a href="regitrarcliente.jsp">Crear cuenta</a>
+  </div>
+
+  <div class="text-center">
+    <a href="index.jsp" class="btn-volver">Volver al Inicio</a>
   </div>
 </div>
 </body>

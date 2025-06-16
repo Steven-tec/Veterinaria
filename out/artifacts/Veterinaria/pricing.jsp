@@ -53,7 +53,9 @@
   </div>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	  <div class="container">
-		  <a class="navbar-brand" href="index.jsp"><span class="flaticon-pawprint-1 mr-2"></span>Clínica de mascotas</a>
+		  <a class="navbar-brand me-3" href="index.jsp">
+			  <i class="fa fa-paw mr-2" style="color: #9f41d5;"></i> Clínica de mascotas
+		  </a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="fa fa-bars"></span> Menú
 		  </button>
@@ -62,10 +64,11 @@
 				  <li class="nav-item active"><a href="index.jsp" class="nav-link">Inicio</a></li>
 				  <li class="nav-item"><a href="vet.jsp" class="nav-link">Nuestro Equipo</a></li>
 				  <li class="nav-item"><a href="services.jsp" class="nav-link">Servicios</a></li>
-				  <li class="nav-item"><a href="pricing.jsp" class="nav-link">Registrar</a></li>
-				  <li class="nav-item"><a href="blog.jsp" class="nav-link">Mis mascotas</a></li>
+				  <li class="nav-item"><a href="registrarCita.jsp" class="nav-link">Registrar citas</a></li>
+				  <li class="nav-item"><a href="RegistrarMascota.jsp" class="nav-link">Registro de Mascotas</a></li>
 				  <li class="nav-item"><a href="contact.jsp" class="nav-link">Contacto</a></li>
-				  <li class="nav-item"><a href="login.jsp" class="nav-link">salir</a></li>
+				  <li class="nav-item"><a href="login.jsp" class="nav-link">Cerrar sesion</a></li>
+				  <li class="nav-item"><a href="LoginAdmin.jsp" class="nav-link">Admin loging</a></li>
 			  </ul>
 		  </div>
 	  </div>
